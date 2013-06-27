@@ -1,5 +1,7 @@
 # YKImageCropper
 
+![Screenshot](https://raw.github.com/yuyak/YKImageCropper/master/Example/screenshot.png)
+
 ## Installation
 
 ```ruby
