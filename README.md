@@ -5,7 +5,7 @@
 ## Installation
 
 ```ruby
-pod 'YKImageCropper', '~> 0.0.1'
+pod 'YKImageCropper', :git => 'https://github.com/yuyak/YKImageCropper'
 ```
 
 ## Usage
