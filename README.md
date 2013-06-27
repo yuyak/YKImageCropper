@@ -11,6 +11,12 @@ pod 'YKImageCropper', '~> 0.0.1'
 ```objective-c
 UIImage *image = [UIImage imageNamed:@"Sample.jpg"];
 YKImageCropperViewController *vc = [[YKImageCropperViewController alloc] initWithImage:image];
+vc.cancelHandler = ^() {
+    // When cancel is tapped
+};
+vc.doneHandler = ^() {
+    // When done is tapped
+};
 ```
 
 ## Contact
