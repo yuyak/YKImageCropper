@@ -7,7 +7,7 @@
 
 @interface YKImageCropperViewController : UIViewController
 
-@property (nonatomic, copy) void (^doneHandler)();
+@property (nonatomic, copy) void (^doneHandler)(UIImage *editedImage);
 @property (nonatomic, copy) void (^cancelHandler)();
 
 - (id)initWithImage:(UIImage *)image;

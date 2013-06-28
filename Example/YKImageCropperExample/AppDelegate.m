@@ -22,6 +22,11 @@
     // Add root view controller
     UIImage *image = [UIImage imageNamed:@"Sample.jpg"];
     YKImageCropperViewController *vc = [[YKImageCropperViewController alloc] initWithImage:image];
+    vc.doneHandler = ^(UIImage *editedImage) {
+        NSLog(@"Original: %@", NSStringFromCGSize(image.size));
+        NSLog(@"Edited: %@", NSStringFromCGSize(editedImage.size));
+    };
+
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     nvc.navigationBar.barStyle = UIBarStyleBlack;
     nvc.toolbar.barStyle = UIBarStyleBlack;

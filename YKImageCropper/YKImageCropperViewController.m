@@ -59,7 +59,7 @@
 
 - (void)doneAction {
     if (self.doneHandler)
-        self.doneHandler();
+        self.doneHandler([self.imageCropperView editedImage]);
 }
 
 @end

@@ -46,6 +46,7 @@ static CGSize minSize = {80, 80};
 {
     self = [super init];
     if (self) {
+        self.image = image;
         self.frame = CGRectMake(0, 0,
                                 [UIScreen mainScreen].applicationFrame.size.width,
                                 [UIScreen mainScreen].applicationFrame.size.height - 88);
@@ -72,7 +73,7 @@ static CGSize minSize = {80, 80};
         self.baseRect = self.imageView.frame;
         [self addSubview:self.imageView];
 
-        //
+        // Overlay
         self.overlayView = [[YKImageCropperOverlayView alloc] initWithFrame:self.frame];
         self.overlayView.maxSize = self.baseRect.size;
         [self addSubview:self.overlayView];
@@ -81,6 +82,22 @@ static CGSize minSize = {80, 80};
     }
 
     return self;
+}
+
+- (UIImage *)editedImage {
+    CGFloat scale = self.image.size.width / self.imageView.frame.size.width;
+    CGRect rect = self.overlayView.clearRect;
+    rect.origin.x = (rect.origin.x - self.imageView.frame.origin.x) * scale;
+    rect.origin.y = (rect.origin.y - self.imageView.frame.origin.y) * scale;
+    rect.size.width *= scale;
+    rect.size.height *= scale;
+//    NSLog(@"imageViewSize: %@, imageSize: %@", NSStringFromCGSize(self.imageView.frame.size), NSStringFromCGSize(self.image.size));
+//    NSLog(@"scale: %f, rect: %@", scale, NSStringFromCGRect(rect));
+    CGImageRef imageRef = CGImageCreateWithImageInRect([self.image CGImage],
+                                                       rect);
+    UIImage *result = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    return result;
 }
 
 - (void)reset {

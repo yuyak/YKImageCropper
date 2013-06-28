@@ -9,8 +9,9 @@
 
 @property (nonatomic, strong) UIImage *image;
 
+- (UIImage *)editedImage;
 - (id)initWithImage:(UIImage *)image;
-- (void)square;
 - (void)reset;
+- (void)square;
 
 @end

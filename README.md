@@ -16,7 +16,7 @@ YKImageCropperViewController *vc = [[YKImageCropperViewController alloc] initWit
 vc.cancelHandler = ^() {
     // When cancel is tapped
 };
-vc.doneHandler = ^() {
+vc.doneHandler = ^(UIImage *editedImage) {
     // When done is tapped
 };
 ```
