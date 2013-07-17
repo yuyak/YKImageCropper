@@ -5,7 +5,7 @@
 
 #import "YKImageCropperOverlayView.h"
 
-#define SIZE 20.0f
+#define SIZE 30.0f
 
 @implementation YKImageCropperOverlayView
 
@@ -68,44 +68,29 @@
     // Draw corners
     CGContextSetFillColorWithColor(c, [UIColor colorWithWhite:1 alpha:0.5].CGColor);
 
-    CGFloat addition = SIZE / 4.0f;
-    CGFloat borderWidth = SIZE / 2.4f;
-    CGFloat borderLength = SIZE;
+    CGContextSaveGState(c);
+    CGContextSetShouldAntialias(c, NO);
 
-    // Top left
-    CGContextAddRect(c, CGRectMake(self.topLeftCorner.origin.x + addition,
-                                   self.topLeftCorner.origin.y + addition,
-                                   borderWidth, borderLength));
-    CGContextAddRect(c, CGRectMake(self.topLeftCorner.origin.x + addition,
-                                   self.topLeftCorner.origin.y + addition,
-                                   borderLength, borderWidth));
+    CGFloat margin = SIZE / 4;
 
-    // Top right
-    CGContextAddRect(c, CGRectMake(self.topRightCorner.origin.x + addition,
-                                   self.topRightCorner.origin.y + addition,
-                                   borderWidth, borderLength));
-    CGContextAddRect(c, CGRectMake(self.topRightCorner.origin.x - self.topRightCorner.size.width + addition + borderWidth,
-                                   self.topRightCorner.origin.y + addition,
-                                   borderLength, borderWidth));
+    // Add clip
+    CGRect clip = CGRectOffset(self.clearRect, -margin, -margin);
+    clip.size.width += margin * 2, clip.size.height += margin * 2;
+    CGContextClipToRect(c, clip);
 
-    // Bottom left
-    CGContextAddRect(c, CGRectMake(self.bottomLeftCorner.origin.x + addition,
-                                   self.bottomLeftCorner.origin.y - self.topRightCorner.size.height + addition + borderWidth,
-                                   borderWidth, borderLength));
-    CGContextAddRect(c, CGRectMake(self.bottomLeftCorner.origin.x + addition,
-                                   self.bottomLeftCorner.origin.y + addition,
-                                   borderLength, borderWidth));
-
-    // Bottom right
-    CGContextAddRect(c, CGRectMake(self.bottomRightCorner.origin.x + addition,
-                                   self.bottomRightCorner.origin.y - self.topRightCorner.size.height + addition + borderWidth,
-                                   borderWidth, borderLength));
-    CGContextAddRect(c, CGRectMake(self.bottomRightCorner.origin.x - self.topRightCorner.size.width + addition + borderWidth,
-                                   self.bottomRightCorner.origin.y + addition,
-                                   borderLength, borderWidth));
-    
+    CGContextAddRect(c, self.topLeftCorner);
+    CGContextAddRect(c, self.topRightCorner);
+    CGContextAddRect(c, self.bottomLeftCorner);
+    CGContextAddRect(c, self.bottomRightCorner);
     CGContextFillPath(c);
-    
+
+    // Clear inside
+    margin = SIZE / 8;
+    clip = CGRectOffset(self.clearRect, margin, margin);
+    clip.size.width -= margin * 2, clip.size.height -= margin * 2;
+    CGContextClearRect(c, clip);
+    CGContextRestoreGState(c);
+
     // Grid
     CGContextSetStrokeColorWithColor(c, [UIColor whiteColor].CGColor);
     CGContextSetLineWidth(c, 1);
@@ -114,7 +99,7 @@
 
     CGPoint from, to;
 
-    // vline
+    // Vetical lines
     for (int i = 1; i <= 2; i++) {
         from = CGPointMake(self.clearRect.origin.x + self.clearRect.size.width / 3.0f * i, self.clearRect.origin.y);
         to = CGPointMake(from.x, CGRectGetMaxY(self.clearRect));
@@ -122,7 +107,7 @@
         CGContextAddLineToPoint(c, to.x, to.y);
     }
 
-    // hline
+    // Horizontal Lines
     for (int i = 1; i <= 2; i++) {
         from = CGPointMake(self.clearRect.origin.x, self.clearRect.origin.y + self.clearRect.size.height / 3.0f * i);
         to = CGPointMake(CGRectGetMaxX(self.clearRect), from.y);
