@@ -91,8 +91,6 @@ static CGSize minSize = {80, 80};
     rect.origin.y = (rect.origin.y - self.imageView.frame.origin.y) * scale;
     rect.size.width *= scale;
     rect.size.height *= scale;
-//    NSLog(@"imageViewSize: %@, imageSize: %@", NSStringFromCGSize(self.imageView.frame.size), NSStringFromCGSize(self.image.size));
-//    NSLog(@"scale: %f, rect: %@", scale, NSStringFromCGRect(rect));
     CGImageRef imageRef = CGImageCreateWithImageInRect([self.image CGImage],
                                                        rect);
     UIImage *result = [UIImage imageWithCGImage:imageRef];

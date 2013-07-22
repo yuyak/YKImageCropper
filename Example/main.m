@@ -1,6 +1,9 @@
 //
 //  main.m
-//  Copyright (c) 2013 yuyak. All rights reserved.
+//  YKImageCropper
+//
+//  Created by Z3 on 7/23/13.
+//
 //
 
 #import <UIKit/UIKit.h>

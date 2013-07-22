@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5AEAF4CE179DAD20009CD937 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEAF4CD179DAD20009CD937 /* UIKit.framework */; };
+		5AEAF4D0179DAD20009CD937 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEAF4CF179DAD20009CD937 /* Foundation.framework */; };
+		5AEAF4D2179DAD20009CD937 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEAF4D1179DAD20009CD937 /* CoreGraphics.framework */; };
+		5AEAF4EC179DAD20009CD937 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEAF4EB179DAD20009CD937 /* SenTestingKit.framework */; };
+		5AEAF4ED179DAD20009CD937 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEAF4CD179DAD20009CD937 /* UIKit.framework */; };
+		5AEAF4EE179DAD20009CD937 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEAF4CF179DAD20009CD937 /* Foundation.framework */; };
+		5AEAF4F6179DAD20009CD937 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AEAF4F4179DAD20009CD937 /* InfoPlist.strings */; };
+		5AEAF4F9179DAD20009CD937 /* YKImageCropperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAF4F8179DAD20009CD937 /* YKImageCropperTests.m */; };
+		5AEAF50F179DAE00009CD937 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAF504179DAE00009CD937 /* AppDelegate.m */; };
+		5AEAF514179DAE00009CD937 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAF50A179DAE00009CD937 /* main.m */; };
+		5AEAF515179DAE00009CD937 /* Sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AEAF50B179DAE00009CD937 /* Sample.jpg */; };
+		5AEAF516179DAE00009CD937 /* screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEAF50C179DAE00009CD937 /* screenshot.png */; };
+		5AEAF517179DAE00009CD937 /* YKImageCropper-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AEAF50D179DAE00009CD937 /* YKImageCropper-Info.plist */; };
+		5AEAF51F179DAE4B009CD937 /* YKImageCropperOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAF51A179DAE4B009CD937 /* YKImageCropperOverlayView.m */; };
+		5AEAF520179DAE4B009CD937 /* YKImageCropperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAF51C179DAE4B009CD937 /* YKImageCropperView.m */; };
+		5AEAF521179DAE4B009CD937 /* YKImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAF51E179DAE4B009CD937 /* YKImageCropperViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5AEAF4EF179DAD20009CD937 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AEAF4C2179DAD20009CD937 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AEAF4C9179DAD20009CD937;
+			remoteInfo = YKImageCropper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5AEAF4CA179DAD20009CD937 /* YKImageCropper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YKImageCropper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AEAF4CD179DAD20009CD937 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5AEAF4CF179DAD20009CD937 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5AEAF4D1179DAD20009CD937 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5AEAF4EA179DAD20009CD937 /* YKImageCropperTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YKImageCropperTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AEAF4EB179DAD20009CD937 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5AEAF4F3179DAD20009CD937 /* YKImageCropperTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YKImageCropperTests-Info.plist"; sourceTree = "<group>"; };
+		5AEAF4F5179DAD20009CD937 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5AEAF4F7179DAD20009CD937 /* YKImageCropperTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YKImageCropperTests.h; sourceTree = "<group>"; };
+		5AEAF4F8179DAD20009CD937 /* YKImageCropperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YKImageCropperTests.m; sourceTree = "<group>"; };
+		5AEAF503179DAE00009CD937 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5AEAF504179DAE00009CD937 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5AEAF50A179DAE00009CD937 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5AEAF50B179DAE00009CD937 /* Sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sample.jpg; sourceTree = "<group>"; };
+		5AEAF50C179DAE00009CD937 /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
+		5AEAF50D179DAE00009CD937 /* YKImageCropper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "YKImageCropper-Info.plist"; sourceTree = "<group>"; };
+		5AEAF50E179DAE00009CD937 /* YKImageCropper-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YKImageCropper-Prefix.pch"; sourceTree = "<group>"; };
+		5AEAF519179DAE4B009CD937 /* YKImageCropperOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YKImageCropperOverlayView.h; sourceTree = "<group>"; };
+		5AEAF51A179DAE4B009CD937 /* YKImageCropperOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YKImageCropperOverlayView.m; sourceTree = "<group>"; };
+		5AEAF51B179DAE4B009CD937 /* YKImageCropperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YKImageCropperView.h; sourceTree = "<group>"; };
+		5AEAF51C179DAE4B009CD937 /* YKImageCropperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YKImageCropperView.m; sourceTree = "<group>"; };
+		5AEAF51D179DAE4B009CD937 /* YKImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YKImageCropperViewController.h; sourceTree = "<group>"; };
+		5AEAF51E179DAE4B009CD937 /* YKImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YKImageCropperViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5AEAF4C7179DAD20009CD937 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AEAF4CE179DAD20009CD937 /* UIKit.framework in Frameworks */,
+				5AEAF4D0179DAD20009CD937 /* Foundation.framework in Frameworks */,
+				5AEAF4D2179DAD20009CD937 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AEAF4E6179DAD20009CD937 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AEAF4EC179DAD20009CD937 /* SenTestingKit.framework in Frameworks */,
+				5AEAF4ED179DAD20009CD937 /* UIKit.framework in Frameworks */,
+				5AEAF4EE179DAD20009CD937 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5AEAF4C1179DAD20009CD937 = {
+			isa = PBXGroup;
+			children = (
+				5AEAF518179DAE4B009CD937 /* YKImageCropper */,
+				5AEAF502179DAE00009CD937 /* Example */,
+				5AEAF4F1179DAD20009CD937 /* YKImageCropperTests */,
+				5AEAF4CC179DAD20009CD937 /* Frameworks */,
+				5AEAF4CB179DAD20009CD937 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5AEAF4CB179DAD20009CD937 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5AEAF4CA179DAD20009CD937 /* YKImageCropper.app */,
+				5AEAF4EA179DAD20009CD937 /* YKImageCropperTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5AEAF4CC179DAD20009CD937 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5AEAF4CD179DAD20009CD937 /* UIKit.framework */,
+				5AEAF4CF179DAD20009CD937 /* Foundation.framework */,
+				5AEAF4D1179DAD20009CD937 /* CoreGraphics.framework */,
+				5AEAF4EB179DAD20009CD937 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5AEAF4F1179DAD20009CD937 /* YKImageCropperTests */ = {
+			isa = PBXGroup;
+			children = (
+				5AEAF4F7179DAD20009CD937 /* YKImageCropperTests.h */,
+				5AEAF4F8179DAD20009CD937 /* YKImageCropperTests.m */,
+				5AEAF4F2179DAD20009CD937 /* Supporting Files */,
+			);
+			path = YKImageCropperTests;
+			sourceTree = "<group>";
+		};
+		5AEAF4F2179DAD20009CD937 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5AEAF4F3179DAD20009CD937 /* YKImageCropperTests-Info.plist */,
+				5AEAF4F4179DAD20009CD937 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5AEAF502179DAE00009CD937 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				5AEAF503179DAE00009CD937 /* AppDelegate.h */,
+				5AEAF504179DAE00009CD937 /* AppDelegate.m */,
+				5AEAF50A179DAE00009CD937 /* main.m */,
+				5AEAF50B179DAE00009CD937 /* Sample.jpg */,
+				5AEAF50C179DAE00009CD937 /* screenshot.png */,
+				5AEAF50D179DAE00009CD937 /* YKImageCropper-Info.plist */,
+				5AEAF50E179DAE00009CD937 /* YKImageCropper-Prefix.pch */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		5AEAF518179DAE4B009CD937 /* YKImageCropper */ = {
+			isa = PBXGroup;
+			children = (
+				5AEAF519179DAE4B009CD937 /* YKImageCropperOverlayView.h */,
+				5AEAF51A179DAE4B009CD937 /* YKImageCropperOverlayView.m */,
+				5AEAF51B179DAE4B009CD937 /* YKImageCropperView.h */,
+				5AEAF51C179DAE4B009CD937 /* YKImageCropperView.m */,
+				5AEAF51D179DAE4B009CD937 /* YKImageCropperViewController.h */,
+				5AEAF51E179DAE4B009CD937 /* YKImageCropperViewController.m */,
+			);
+			path = YKImageCropper;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5AEAF4C9179DAD20009CD937 /* YKImageCropper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AEAF4FC179DAD20009CD937 /* Build configuration list for PBXNativeTarget "YKImageCropper" */;
+			buildPhases = (
+				5AEAF4C6179DAD20009CD937 /* Sources */,
+				5AEAF4C7179DAD20009CD937 /* Frameworks */,
+				5AEAF4C8179DAD20009CD937 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YKImageCropper;
+			productName = YKImageCropper;
+			productReference = 5AEAF4CA179DAD20009CD937 /* YKImageCropper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5AEAF4E9179DAD20009CD937 /* YKImageCropperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AEAF4FF179DAD20009CD937 /* Build configuration list for PBXNativeTarget "YKImageCropperTests" */;
+			buildPhases = (
+				5AEAF4E5179DAD20009CD937 /* Sources */,
+				5AEAF4E6179DAD20009CD937 /* Frameworks */,
+				5AEAF4E7179DAD20009CD937 /* Resources */,
+				5AEAF4E8179DAD20009CD937 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AEAF4F0179DAD20009CD937 /* PBXTargetDependency */,
+			);
+			name = YKImageCropperTests;
+			productName = YKImageCropperTests;
+			productReference = 5AEAF4EA179DAD20009CD937 /* YKImageCropperTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5AEAF4C2179DAD20009CD937 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
+			buildConfigurationList = 5AEAF4C5179DAD20009CD937 /* Build configuration list for PBXProject "YKImageCropper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5AEAF4C1179DAD20009CD937;
+			productRefGroup = 5AEAF4CB179DAD20009CD937 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5AEAF4C9179DAD20009CD937 /* YKImageCropper */,
+				5AEAF4E9179DAD20009CD937 /* YKImageCropperTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5AEAF4C8179DAD20009CD937 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AEAF515179DAE00009CD937 /* Sample.jpg in Resources */,
+				5AEAF516179DAE00009CD937 /* screenshot.png in Resources */,
+				5AEAF517179DAE00009CD937 /* YKImageCropper-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AEAF4E7179DAD20009CD937 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AEAF4F6179DAD20009CD937 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5AEAF4E8179DAD20009CD937 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5AEAF4C6179DAD20009CD937 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AEAF50F179DAE00009CD937 /* AppDelegate.m in Sources */,
+				5AEAF514179DAE00009CD937 /* main.m in Sources */,
+				5AEAF51F179DAE4B009CD937 /* YKImageCropperOverlayView.m in Sources */,
+				5AEAF520179DAE4B009CD937 /* YKImageCropperView.m in Sources */,
+				5AEAF521179DAE4B009CD937 /* YKImageCropperViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AEAF4E5179DAD20009CD937 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AEAF4F9179DAD20009CD937 /* YKImageCropperTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5AEAF4F0179DAD20009CD937 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AEAF4C9179DAD20009CD937 /* YKImageCropper */;
+			targetProxy = 5AEAF4EF179DAD20009CD937 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5AEAF4F4179DAD20009CD937 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AEAF4F5179DAD20009CD937 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5AEAF4FA179DAD20009CD937 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5AEAF4FB179DAD20009CD937 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5AEAF4FD179DAD20009CD937 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Example/YKImageCropper-Prefix.pch";
+				INFOPLIST_FILE = "Example/YKImageCropper-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5AEAF4FE179DAD20009CD937 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Example/YKImageCropper-Prefix.pch";
+				INFOPLIST_FILE = "Example/YKImageCropper-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		5AEAF500179DAD20009CD937 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/YKImageCropper.app/YKImageCropper";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YKImageCropper/YKImageCropper-Prefix.pch";
+				INFOPLIST_FILE = "YKImageCropperTests/YKImageCropperTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5AEAF501179DAD20009CD937 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/YKImageCropper.app/YKImageCropper";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YKImageCropper/YKImageCropper-Prefix.pch";
+				INFOPLIST_FILE = "YKImageCropperTests/YKImageCropperTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5AEAF4C5179DAD20009CD937 /* Build configuration list for PBXProject "YKImageCropper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AEAF4FA179DAD20009CD937 /* Debug */,
+				5AEAF4FB179DAD20009CD937 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AEAF4FC179DAD20009CD937 /* Build configuration list for PBXNativeTarget "YKImageCropper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AEAF4FD179DAD20009CD937 /* Debug */,
+				5AEAF4FE179DAD20009CD937 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AEAF4FF179DAD20009CD937 /* Build configuration list for PBXNativeTarget "YKImageCropperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AEAF500179DAD20009CD937 /* Debug */,
+				5AEAF501179DAD20009CD937 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5AEAF4C2179DAD20009CD937 /* Project object */;
+}

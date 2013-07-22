@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'YKImageCropperExample' target in the 'YKImageCropperExample' project
+// Prefix header for all source files of the 'YKImageCropper' target in the 'YKImageCropper' project
 //
 
 #import <Availability.h>
