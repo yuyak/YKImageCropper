@@ -18,11 +18,12 @@
 		5AEAF50F179DAE00009CD937 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAF504179DAE00009CD937 /* AppDelegate.m */; };
 		5AEAF514179DAE00009CD937 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAF50A179DAE00009CD937 /* main.m */; };
 		5AEAF515179DAE00009CD937 /* Sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AEAF50B179DAE00009CD937 /* Sample.jpg */; };
-		5AEAF516179DAE00009CD937 /* screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AEAF50C179DAE00009CD937 /* screenshot.png */; };
 		5AEAF517179DAE00009CD937 /* YKImageCropper-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AEAF50D179DAE00009CD937 /* YKImageCropper-Info.plist */; };
 		5AEAF51F179DAE4B009CD937 /* YKImageCropperOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAF51A179DAE4B009CD937 /* YKImageCropperOverlayView.m */; };
 		5AEAF520179DAE4B009CD937 /* YKImageCropperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAF51C179DAE4B009CD937 /* YKImageCropperView.m */; };
 		5AEAF521179DAE4B009CD937 /* YKImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAF51E179DAE4B009CD937 /* YKImageCropperViewController.m */; };
+		5AEAF524179DB0BB009CD937 /* Test1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AEAF522179DB0BB009CD937 /* Test1.jpg */; };
+		5AEAF525179DB0BB009CD937 /* Test2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AEAF523179DB0BB009CD937 /* Test2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +51,6 @@
 		5AEAF504179DAE00009CD937 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5AEAF50A179DAE00009CD937 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5AEAF50B179DAE00009CD937 /* Sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sample.jpg; sourceTree = "<group>"; };
-		5AEAF50C179DAE00009CD937 /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
 		5AEAF50D179DAE00009CD937 /* YKImageCropper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "YKImageCropper-Info.plist"; sourceTree = "<group>"; };
 		5AEAF50E179DAE00009CD937 /* YKImageCropper-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YKImageCropper-Prefix.pch"; sourceTree = "<group>"; };
 		5AEAF519179DAE4B009CD937 /* YKImageCropperOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YKImageCropperOverlayView.h; sourceTree = "<group>"; };
@@ -59,6 +59,8 @@
 		5AEAF51C179DAE4B009CD937 /* YKImageCropperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YKImageCropperView.m; sourceTree = "<group>"; };
 		5AEAF51D179DAE4B009CD937 /* YKImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YKImageCropperViewController.h; sourceTree = "<group>"; };
 		5AEAF51E179DAE4B009CD937 /* YKImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YKImageCropperViewController.m; sourceTree = "<group>"; };
+		5AEAF522179DB0BB009CD937 /* Test1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Test1.jpg; sourceTree = "<group>"; };
+		5AEAF523179DB0BB009CD937 /* Test2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Test2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,8 @@
 		5AEAF4F2179DAD20009CD937 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5AEAF522179DB0BB009CD937 /* Test1.jpg */,
+				5AEAF523179DB0BB009CD937 /* Test2.jpg */,
 				5AEAF4F3179DAD20009CD937 /* YKImageCropperTests-Info.plist */,
 				5AEAF4F4179DAD20009CD937 /* InfoPlist.strings */,
 			);
@@ -142,7 +146,6 @@
 				5AEAF504179DAE00009CD937 /* AppDelegate.m */,
 				5AEAF50A179DAE00009CD937 /* main.m */,
 				5AEAF50B179DAE00009CD937 /* Sample.jpg */,
-				5AEAF50C179DAE00009CD937 /* screenshot.png */,
 				5AEAF50D179DAE00009CD937 /* YKImageCropper-Info.plist */,
 				5AEAF50E179DAE00009CD937 /* YKImageCropper-Prefix.pch */,
 			);
@@ -233,7 +236,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AEAF515179DAE00009CD937 /* Sample.jpg in Resources */,
-				5AEAF516179DAE00009CD937 /* screenshot.png in Resources */,
 				5AEAF517179DAE00009CD937 /* YKImageCropper-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +245,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AEAF4F6179DAD20009CD937 /* InfoPlist.strings in Resources */,
+				5AEAF524179DB0BB009CD937 /* Test1.jpg in Resources */,
+				5AEAF525179DB0BB009CD937 /* Test2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +398,7 @@
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "YKImageCropper/YKImageCropper-Prefix.pch";
+				GCC_PREFIX_HEADER = "Example/YKImageCropper-Prefix.pch";
 				INFOPLIST_FILE = "YKImageCropperTests/YKImageCropperTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -411,7 +415,7 @@
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "YKImageCropper/YKImageCropper-Prefix.pch";
+				GCC_PREFIX_HEADER = "Example/YKImageCropper-Prefix.pch";
 				INFOPLIST_FILE = "YKImageCropperTests/YKImageCropperTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";

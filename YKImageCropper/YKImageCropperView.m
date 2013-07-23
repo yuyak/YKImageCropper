@@ -232,7 +232,7 @@ static CGSize minSize = {80, 80};
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
-    
+
     if ([touches count] == 1) {
         self.firstTouchedPoint = [(UITouch*)[touches anyObject] locationInView:self];
     }
@@ -295,7 +295,6 @@ static CGSize minSize = {80, 80};
     }
 
     self.overlayView.clearRect = newClearRect;
-
     [self.overlayView setNeedsDisplay];
 }
 

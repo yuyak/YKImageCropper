@@ -8,25 +8,33 @@
 
 #import "YKImageCropperTests.h"
 
+#import "YKImageCropperView.h"
+
+@interface YKImageCropperTests ()
+
+@property (nonatomic, strong) YKImageCropperView *view;
+@property (nonatomic, strong) UIImage *image;
+
+@end
+
 @implementation YKImageCropperTests
 
-- (void)setUp
-{
-    [super setUp];
-    
-    // Set-up code here.
+- (void)setUp {
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSString *imagePath = [bundle pathForResource:@"Test1" ofType:@"jpg"];
+    self.image = [UIImage imageWithContentsOfFile:imagePath];
+    self.view = [[YKImageCropperView alloc] initWithImage:self.image];
 }
 
-- (void)tearDown
+- (void)testEditedImageSize
 {
-    // Tear-down code here.
-    
-    [super tearDown];
-}
+    STAssertEquals(self.view.editedImage.size, CGSizeMake(642, 964), nil);
 
-- (void)testExample
-{
-    STFail(@"Unit tests are not implemented yet in YKImageCropperTests");
+    [self.view square];
+    STAssertEquals(self.view.editedImage.size, CGSizeMake(642, 642), nil);
+
+    [self.view reset];
+    STAssertEquals(self.view.editedImage.size, CGSizeMake(642, 964), nil);
 }
 
 @end
