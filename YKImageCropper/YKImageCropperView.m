@@ -91,12 +91,14 @@ static CGSize minSize = {80, 80};
     rect.origin.y = (rect.origin.y - self.imageView.frame.origin.y) * scale;
     rect.size.width *= scale;
     rect.size.height *= scale;
-    CGImageRef imageRef = CGImageCreateWithImageInRect([self.image CGImage],
-                                                       rect);
-    UIImage *result = [UIImage imageWithCGImage:imageRef
-                                          scale:1
-                                    orientation:self.image.imageOrientation];
-    CGImageRelease(imageRef);
+
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef c = UIGraphicsGetCurrentContext();
+    CGContextClipToRect(c, CGRectMake(0, 0, rect.size.width, rect.size.height));
+    [self.image drawInRect:CGRectMake(-rect.origin.x, -rect.origin.y, self.image.size.width, self.image.size.height)];
+    UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
     return result;
 }
 
