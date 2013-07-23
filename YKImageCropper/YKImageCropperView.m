@@ -93,7 +93,9 @@ static CGSize minSize = {80, 80};
     rect.size.height *= scale;
     CGImageRef imageRef = CGImageCreateWithImageInRect([self.image CGImage],
                                                        rect);
-    UIImage *result = [UIImage imageWithCGImage:imageRef];
+    UIImage *result = [UIImage imageWithCGImage:imageRef
+                                          scale:1
+                                    orientation:self.image.imageOrientation];
     CGImageRelease(imageRef);
     return result;
 }
