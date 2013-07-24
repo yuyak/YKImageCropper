@@ -73,9 +73,9 @@
 
     CGFloat margin = SIZE / 4;
 
-    // Add clip
-    CGRect clip = CGRectOffset(self.clearRect, -margin, -margin);
-    clip.size.width += margin * 2, clip.size.height += margin * 2;
+    // Clear outside
+    CGRect clip = CGRectOffset(self.clearRect, -margin * 0.4f, -margin * 0.4f);
+    clip.size.width += margin * 0.8f, clip.size.height += margin * 0.8f;
     CGContextClipToRect(c, clip);
 
     CGContextAddRect(c, self.topLeftCorner);

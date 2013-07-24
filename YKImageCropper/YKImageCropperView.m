@@ -14,16 +14,14 @@ enum {
     BottomRightCorner
 };
 
-static CGSize minSize = {80, 80};
+static CGSize minSize = {40, 40};
 
 @interface YKImageCropperView ()
 
 @property (nonatomic, assign) CGPoint firstTouchedPoint;
 
-//
 @property (nonatomic, assign) NSUInteger panningCorner;
 
-//
 @property (nonatomic, assign) BOOL isPanningCorner;
 
 // Current scale (1 <= currentScale)
@@ -113,11 +111,35 @@ static CGSize minSize = {80, 80};
 }
 
 - (void)square {
-    CGRect newClearRect = self.overlayView.clearRect;
-    CGFloat length = MIN(newClearRect.size.width, newClearRect.size.height);
-    length = MAX(length, minSize.width);
-    newClearRect.size = CGSizeMake(length, length);
-    self.overlayView.clearRect = newClearRect;
+    [self setConstrain:CGSizeMake(1, 1)];
+}
+
+- (void)setConstrain:(CGSize)size {
+    CGFloat constrainRatio = size.width / size.height;
+    CGFloat currentRatio = self.overlayView.clearRect.size.width / self.overlayView.clearRect.size.height;
+    CGSize newSize = self.overlayView.clearRect.size;
+
+    if (currentRatio > constrainRatio) {
+        newSize.width = newSize.height * constrainRatio;
+    } else {
+        newSize.height = newSize.width * (size.height / size.width);
+    }
+
+    // New size should be bigger than min size
+    if (newSize.width < minSize.width || newSize.height < minSize.height) {
+        if (size.height / size.width > 1) {
+            newSize.width = minSize.width;
+            newSize.height = minSize.width * size.height / size.width;
+        } else {
+            newSize.width = minSize.width * size.width / size.height;
+            newSize.height = minSize.height;
+        }
+    }
+
+    CGRect frame = self.overlayView.clearRect;
+    frame.size = newSize;
+    self.overlayView.clearRect = frame;
+
     [self.overlayView setNeedsDisplay];
 }
 

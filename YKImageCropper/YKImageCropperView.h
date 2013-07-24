@@ -13,5 +13,6 @@
 - (id)initWithImage:(UIImage *)image;
 - (void)reset;
 - (void)square;
+- (void)setConstrain:(CGSize)size;
 
 @end

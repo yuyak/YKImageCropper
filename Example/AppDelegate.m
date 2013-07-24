@@ -22,9 +22,12 @@
     // Add root view controller
     UIImage *image = [UIImage imageNamed:@"Sample.jpg"];
     YKImageCropperViewController *vc = [[YKImageCropperViewController alloc] initWithImage:image];
+    vc.cancelHandler = ^() {
+        NSLog(@"* Cancel");
+    };
     vc.doneHandler = ^(UIImage *editedImage) {
-        NSLog(@"Original: %@", NSStringFromCGSize(image.size));
-        NSLog(@"Edited: %@", NSStringFromCGSize(editedImage.size));
+        NSLog(@"* Done");
+        NSLog(@"Original: %@, Edited: %@", NSStringFromCGSize(image.size), NSStringFromCGSize(editedImage.size));
     };
 
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];

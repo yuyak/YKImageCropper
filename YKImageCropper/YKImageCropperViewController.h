@@ -5,7 +5,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YKImageCropperViewController : UIViewController
+@interface YKImageCropperViewController : UIViewController <UIActionSheetDelegate>
 
 @property (nonatomic, copy) void (^doneHandler)(UIImage *editedImage);
 @property (nonatomic, copy) void (^cancelHandler)();

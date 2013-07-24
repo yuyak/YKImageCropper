@@ -19,6 +19,7 @@
 {
     self = [super init];
     if (self) {
+        self.title = NSLocalizedString(@"Crop Photo", @"");
         self.imageCropperView = [[YKImageCropperView alloc] initWithImage:image];
         [self.view addSubview:self.imageCropperView];
 
@@ -32,10 +33,10 @@
         UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                                target:nil
                                                                                action:nil];
-        UIBarButtonItem *constrainButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Square", @"")
+        UIBarButtonItem *constrainButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Constrain", @"")
                                                                             style:UIBarButtonItemStyleBordered
-                                                                           target:self.imageCropperView
-                                                                           action:@selector(square)];
+                                                                           target:self
+                                                                           action:@selector(constrainAction)];
         UIBarButtonItem *revertButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reset", @"")
                                                                             style:UIBarButtonItemStyleBordered
                                                                            target:self.imageCropperView
@@ -50,6 +51,41 @@
     [super viewWillAppear:animated];
     [self.navigationController setToolbarHidden:NO animated:NO];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
+- (void)constrainAction {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:NSLocalizedString(@"Cancel", @"")
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:NSLocalizedString(@"Square", @""),
+                                                                      NSLocalizedString(@"3 x 2", @""),
+                                                                      NSLocalizedString(@"4 x 3", @""),
+                                                                      NSLocalizedString(@"16 x 9", @""),
+                                                                      nil];
+    [actionSheet showInView:self.view.window];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == actionSheet.cancelButtonIndex) return;
+
+    switch (buttonIndex) {
+        case 0:
+            [self.imageCropperView setConstrain:CGSizeMake(1, 1)];
+            break;
+
+        case 1:
+            [self.imageCropperView setConstrain:CGSizeMake(3, 2)];
+            break;
+
+        case 2:
+            [self.imageCropperView setConstrain:CGSizeMake(4, 3)];
+            break;
+
+        case 3:
+            [self.imageCropperView setConstrain:CGSizeMake(16, 9)];
+            break;
+    }
 }
 
 - (void)cancelAction {
