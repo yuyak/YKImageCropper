@@ -7,24 +7,28 @@
 
 #import "YKImageCropperOverlayView.h"
 
-enum {
-    TopLeftCorner = 0,
-    TopRightCorner,
-    BottomLeftCorner,
-    BottomRightCorner
+typedef NS_ENUM(NSUInteger, OverlayViewPanningMode) {
+    OverlayViewPanningModeNone     = 0,
+    OverlayViewPanningModeLeft     = 1 << 0,
+    OverlayViewPanningModeRight    = 1 << 1,
+    OverlayViewPanningModeTop      = 1 << 2,
+    OverlayViewPanningModeBottom   = 1 << 3
 };
 
 static CGSize minSize = {40, 40};
 
 @interface YKImageCropperView ()
 
+// Remember first touched point
 @property (nonatomic, assign) CGPoint firstTouchedPoint;
 
-@property (nonatomic, assign) NSUInteger panningCorner;
+// Panning mode for oeverlay view
+@property (nonatomic, assign) OverlayViewPanningMode OverlayViewPanningMode;
 
-@property (nonatomic, assign) BOOL isPanningCorner;
+// Returns if panning is for overlay view
+@property (nonatomic, assign) BOOL isPanningOverlayView;
 
-// Current scale (1 <= currentScale)
+// Current scale (up to 1)
 @property (nonatomic, assign) CGFloat currentScale;
 
 // Image view
@@ -125,7 +129,7 @@ static CGSize minSize = {40, 40};
         newSize.height = newSize.width * (size.height / size.width);
     }
 
-    // New size should be bigger than min size
+    // Size should be bigger than min size
     if (newSize.width < minSize.width || newSize.height < minSize.height) {
         if (size.height / size.width > 1) {
             newSize.width = minSize.width;
@@ -244,16 +248,26 @@ static CGSize minSize = {40, 40};
     sender.scale = 1;
 }
 
-- (NSUInteger)getCornerByPoint:(CGPoint)point {
+- (OverlayViewPanningMode)getOverlayViewPanningModeByPoint:(CGPoint)point {
     if (CGRectContainsPoint(self.overlayView.topLeftCorner, point)) {
-        return TopLeftCorner;
+        return (OverlayViewPanningModeLeft | OverlayViewPanningModeTop);
     } else if (CGRectContainsPoint(self.overlayView.topRightCorner, point)) {
-        return TopRightCorner;
+        return (OverlayViewPanningModeRight | OverlayViewPanningModeTop);
     } else if (CGRectContainsPoint(self.overlayView.bottomLeftCorner, point)) {
-        return BottomLeftCorner;
-    } else {
-        return BottomRightCorner;
+        return (OverlayViewPanningModeLeft | OverlayViewPanningModeBottom);
+    } else if (CGRectContainsPoint(self.overlayView.bottomRightCorner, point)) {
+        return (OverlayViewPanningModeRight | OverlayViewPanningModeBottom);
+    } else if (CGRectContainsPoint(self.overlayView.topEdgeRect, point)) {
+        return OverlayViewPanningModeTop;
+    } else if (CGRectContainsPoint(self.overlayView.rightEdgeRect, point)) {
+        return OverlayViewPanningModeRight;
+    } else if (CGRectContainsPoint(self.overlayView.bottomEdgeRect, point)) {
+        return OverlayViewPanningModeBottom;
+    } else if (CGRectContainsPoint(self.overlayView.leftEdgeRect, point)) {
+        return OverlayViewPanningModeLeft;
     }
+
+    return OverlayViewPanningModeNone;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -267,15 +281,19 @@ static CGSize minSize = {40, 40};
 - (void)panGesture:(UIPanGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
         CGPoint point = self.firstTouchedPoint;
-        
-        self.isPanningCorner = ([self.overlayView isCornerContainsPoint:point]);
-        if (self.isPanningCorner) {
-            self.panningCorner = [self getCornerByPoint:point];
+
+        if ([self.overlayView isCornerContainsPoint:point] || [self.overlayView isEdgeContainsPoint:point]) {
+            // Corner or Edge
+            self.isPanningOverlayView = YES;
+            self.OverlayViewPanningMode = [self getOverlayViewPanningModeByPoint:point];
+        } else {
+            // Image
+            self.isPanningOverlayView = NO;
         }
     }
 
-    if (self.isPanningCorner) {
-        [self panCorner:sender];
+    if (self.isPanningOverlayView) {
+        [self panOverlayView:sender];
     } else {
         [self panImage:sender];
     }
@@ -284,25 +302,22 @@ static CGSize minSize = {40, 40};
     [sender setTranslation:CGPointZero inView:self];
 }
 
-- (void)panCorner:(UIPanGestureRecognizer *)sender {
+- (void)panOverlayView:(UIPanGestureRecognizer *)sender {
     CGPoint d = [sender translationInView:self];
     CGRect oldClearRect = self.overlayView.clearRect;
     CGRect newClearRect = self.overlayView.clearRect;
 
-    BOOL isLeft = (self.panningCorner == TopLeftCorner || self.panningCorner == BottomLeftCorner);
-    BOOL isTop = (self.panningCorner == TopLeftCorner || self.panningCorner == TopRightCorner);
-
-    if (isLeft) {
+    if (self.OverlayViewPanningMode & OverlayViewPanningModeLeft) {
         newClearRect.origin.x += d.x;
         newClearRect.size.width -= d.x;
-    } else {
+    } else if (self.OverlayViewPanningMode & OverlayViewPanningModeRight) {
         newClearRect.size.width += d.x;
     }
 
-    if (isTop) {
+    if (self.OverlayViewPanningMode & OverlayViewPanningModeTop) {
         newClearRect.origin.y += d.y;
         newClearRect.size.height -= d.y;
-    } else {
+    } else if (self.OverlayViewPanningMode & OverlayViewPanningModeBottom) {
         newClearRect.size.height += d.y;
     }
 

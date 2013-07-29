@@ -18,6 +18,13 @@
     return self;
 }
 
+- (CGRect)edgeRect {
+    return CGRectMake(CGRectGetMinX(self.clearRect) - SIZE / 2,
+                      CGRectGetMinY(self.clearRect) - SIZE / 2,
+                      CGRectGetWidth(self.clearRect) + SIZE,
+                      CGRectGetHeight(self.clearRect) + SIZE);
+}
+
 - (CGRect)topLeftCorner {
     return CGRectMake(CGRectGetMinX(self.clearRect) - SIZE / 2,
                       CGRectGetMinY(self.clearRect) - SIZE / 2,
@@ -40,6 +47,37 @@
     return CGRectMake(CGRectGetMaxX(self.clearRect) - SIZE / 2,
                       CGRectGetMaxY(self.clearRect) - SIZE / 2,
                       SIZE, SIZE);
+}
+
+- (CGRect)topEdgeRect {
+    return CGRectMake(CGRectGetMinX([self edgeRect]) + SIZE,
+                      CGRectGetMinY([self edgeRect]),
+                      CGRectGetWidth([self edgeRect]) - SIZE * 2, SIZE);
+}
+
+- (CGRect)rightEdgeRect {
+    return CGRectMake(CGRectGetMaxX([self edgeRect]) - SIZE,
+                      CGRectGetMinY([self edgeRect]) + SIZE,
+                      SIZE, CGRectGetHeight([self edgeRect]) - SIZE * 2);
+}
+
+- (CGRect)bottomEdgeRect {
+    return CGRectMake(CGRectGetMinX([self edgeRect]) + SIZE,
+                      CGRectGetMaxY([self edgeRect]) - SIZE,
+                      CGRectGetWidth([self edgeRect]) - SIZE * 2, SIZE);
+}
+
+- (CGRect)leftEdgeRect {
+    return CGRectMake(CGRectGetMinX([self edgeRect]),
+                      CGRectGetMinY([self edgeRect]) + SIZE,
+                      SIZE, CGRectGetHeight([self edgeRect]) - SIZE * 2);
+}
+
+- (BOOL)isEdgeContainsPoint:(CGPoint)point {
+    return CGRectContainsPoint([self topEdgeRect], point)
+        || CGRectContainsPoint([self rightEdgeRect], point)
+        || CGRectContainsPoint([self bottomEdgeRect], point)
+        || CGRectContainsPoint([self leftEdgeRect], point);
 }
 
 - (BOOL)isCornerContainsPoint:(CGPoint)point {
